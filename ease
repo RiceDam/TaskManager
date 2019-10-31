@@ -1,0 +1,92 @@
+[33mcommit 711368cd88f04a170f7064e8483606a501fdc96d[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Jeffrey To <jleeto93@gmail.com>
+Date:   Thu Oct 10 10:23:52 2019 -0700
+
+    edit index.html
+
+[33mcommit 7307748074cf4f6d5383b567750fbbb30ce1875d[m
+Author: Jeffrey To <jleeto93@gmail.com>
+Date:   Thu Oct 10 10:20:09 2019 -0700
+
+    changed index.html
+
+[33mcommit a337c24570435091b0a4ad23d30f397f7e42882a[m
+Merge: 74cc3bd df863cb
+Author: Jeffrey To <jleeto93@gmail.com>
+Date:   Thu Oct 10 10:17:19 2019 -0700
+
+    Merge https://github.com/RiceDam/TaskManager
+
+[33mcommit df863cb835ace8606c2370fc1d6ef989920108f3[m
+Author: Eric Dam <dam.eric3@gmail.com>
+Date:   Thu Oct 10 10:16:08 2019 -0700
+
+    editted style.html
+
+[33mcommit 74cc3bd5eae2cbd6175a76b53390eb5ccbf8f4b0[m
+Merge: 658651c dc71c60
+Author: Jeffrey To <jleeto93@gmail.com>
+Date:   Thu Oct 10 10:12:54 2019 -0700
+
+    Merge https://github.com/RiceDam/TaskManager
+
+[33mcommit 658651c1f8ab490b42a007ea86bd0378bd38a13c[m
+Author: Jeffrey To <jleeto93@gmail.com>
+Date:   Thu Oct 10 10:11:55 2019 -0700
+
+    added to style page
+
+[33mcommit dc71c60db66fbb3d791e2e9796e67042f1827a85[m
+Author: Eric Dam <dam.eric3@gmail.com>
+Date:   Thu Oct 10 10:11:41 2019 -0700
+
+    editted style.html
+
+[33mcommit 2ec3dc4a56953fe465f3c4a50d52c7c1136bf45e[m
+Merge: b180dc1 716b6f6
+Author: Jeffrey To <jleeto93@gmail.com>
+Date:   Thu Oct 10 10:06:06 2019 -0700
+
+    Merge https://github.com/RiceDam/TaskManager
+
+[33mcommit b180dc17c72d62985d8d0072d75a5a494dd836e9[m
+Author: Jeffrey To <jleeto93@gmail.com>
+Date:   Thu Oct 10 10:04:14 2019 -0700
+
+    Edit index.html, made style.html
+
+[33mcommit 716b6f6d962691bd3f640e1a6c4a142987bf614d[m
+Author: Eric Dam <dam.eric3@gmail.com>
+Date:   Thu Oct 10 10:01:59 2019 -0700
+
+    Added task page
+
+[33mcommit e0d18ad510a4472e58a9fd822d85cc88660c062a[m
+Author: Eric Dam <dam.eric3@gmail.com>
+Date:   Thu Oct 10 09:55:40 2019 -0700
+
+    deleted
+
+[33mcommit 5a4d0d253a06b5f3b310cd30dd03c6a11ba74f7f[m
+Author: Eric Dam <dam.eric3@gmail.com>
+Date:   Thu Oct 10 09:55:27 2019 -0700
+
+    Update
+
+[33mcommit 7b169c05a04643faff3782099600de69c36c13e4[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Eric Dam <dam.eric3@gmail.com>
+Date:   Thu Oct 10 09:48:35 2019 -0700
+
+    Deleted
+
+[33mcommit 201636714d0c046fe0fcb526b3767a84184119fa[m
+Author: Eric Dam <dam.eric3@gmail.com>
+Date:   Thu Oct 10 09:46:37 2019 -0700
+
+    Updated folders
+
+[33mcommit d5d545ecb4908c1290462d4f973483375d60452b[m
+Author: Eric Dam <dam.eric3@gmail.com>
+Date:   Thu Oct 10 09:43:10 2019 -0700
+
+    Created Repository
