@@ -4,6 +4,94 @@
 <head>
 <title>THIS IS OUR PROJECT MANAGER</title>
 <meta charset="utf-8">
+  
+  
+  <style>
+    
+   @import url('https://fonts.googleapis.com/css?family=Exo:900&display=swap');
+  
+    #head {
+    background-color: #2b1f60;
+    color: #F4FFFD;
+    }
+
+    #menu {
+      display: none;
+    font-size: 18pt;
+    font-weight: bolder;
+    background: #2b1f60;
+    color: #f4fffd;
+    position: absolute;
+    top: 5%;
+    right: 0%;
+    font-family: 'Exo', sans-serif;
+    }
+    #burger{
+    position: absolute;
+    right: 1%;
+    top:0%;
+    }
+    
+    #who {
+    background: url(./image/manage.jpg) no-repeat center bottom fixed;
+    background-size: cover;
+    font-size: 24pt; 
+    font-weight: bolder;
+    text-align : center;
+    font-family: 'Exo', sans-serif;
+    
+    /* background: url(“resource/test.jpg”) no-repeat center center fixed;
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   -o-background-size: cover;
+   background-size: cover; */  
+    color: #2b1f60;
+    height: 730px;
+    }
+    #title2 {
+    font-size: 48pt;
+    font-family: 'Exo', sans-serif;
+        
+    }
+    #signup {
+    padding: 12px 24px;
+    font-size: 18pt;
+    font-weight: bold;
+    background-color: #2b1f60;
+    color: #f4FFFD;
+      font-family: "Exo", sans-serif;
+    }
+    #info {
+    background: url(./image/manage2.jpg) no-repeat center center fixed;
+    background-size: cover;
+    color: #2b1f60;
+    font-weight: bolder;
+    font-size: 18pt;
+    text-align: center;
+    height: 830px;
+    font-family : 'Exo', sans-serif;
+    }
+    #ready {
+    background-color: #2b1f60;
+    color: #f4fffd;
+    text-align: center;
+    font-family: 'Exo', sans-serif;
+    }
+    .submit2 {
+    background-color: #f4fffd;
+    font-size: 18pt;
+    color: #2b1f60;
+    display : block;
+    margin: 0 auto;
+    font-family: 'Exo', sans-serif;
+    
+    
+      
+    }
+  
+  
+  
+  </style>
 
  <!-- Bootstrap for Mobile-first, and JQuery -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -18,55 +106,57 @@
                       
 <body>
 
-<header>
-    <h1>Task Manager</h1>
-  </header>
+<header id = "head">
+    <h1 id= "title">Task Manager</h1>
+  <img id="burger" src="./image/menu.png" style="width: 50px; height: 50px;">
 <nav>
-  <table>
-    <tr>
-      <td>Home</td>
-      <td>Tour</td>
-      <td>Contact</td>
-       <td>Sign In</td>
-    </tr>
+  <table id = "menu">
+
+      <tr><td>Home</td></tr>
+    <tr><td>Tour</td></tr>
+    <tr><td>Contact</td></tr>
+    <tr><td><a href="login.html">Sign In</a></td></tr>
+    
   </table>
 </nav>
+  </header>
 
 <div id="mainbody">
 
 <div id="who">
-<h1>What is Task Manager?</h1>
+<h1 id="title2">What is Task Manager?</h1>
   <p>Task Manager is an all-in-one solution for your organizational needs. </p>
   <form action="./login.html">
-  <input type="submit" value="Sign Up Now">
+  <input id = "signup" type="submit" value="Sign Up Now">
   </form>  
 </div>
-<div id ="information">
+  
+<div id ="info">
 <h1>What does Task Manager Do?</h1>
   <div>
     <div>
-    <img src="Logo.png" style="width: 100px; height: 100px;" alt="do this">
+    <img src="./image/Add.png" style="width: 100px; height: 100px;" alt="do this">
     <p>Easily add and remove your tasks from your task list.</p>
     </div>
     <div>
-    <img src="Logo.png" style="width: 100px; height: 100px;" alt="do this">
-    <p>Organize tasks by type, category, or whatever other key words you want so that yo u can find exactly what you're looking for.</p>
+    <img src="./image/edit.png" style="width: 100px; height: 100px;" alt="do this">
+    <p>Organize tasks by type, category, or whatever other key words you want so that you can find exactly what you're looking for.</p>
     </div>
     <div>
-    <img src="Logo.png" style="width: 100px; height: 100px;" alt="do this">
+    <img src="./image/break.png" style="width: 100px; height: 100px;" alt="do this">
     <p>Break larger, long-term goals into smaller pieces that are linked together to easily track progression.</p>
     </div>
   </div>  
 </div>
 
-<div id="Ready">
+<div id="ready">
 <h1>Ready to Try TaskManager?</h1>
   <div>
   <form action="login.html">
-  <input type="submit" value="Sign Up Now">
+  <input class="submit2" type="submit" value="Sign Up Now">
   </form>
   <form action="tour.html">
-  <input type="submit" value="Take the Tour">
+  <input class="submit2" type="submit" value="Take the Tour">
   </form>
   </div>
 
@@ -75,6 +165,21 @@
 </div>
 
 
-
+<script>
+  
+  $(document).ready(function() {
+    var burg = $("#burger");
+    var men = $("#menu");
+   $(burg).hover(
+          // in
+          function(e) {
+          $(men).show();
+          },
+          // out
+          function(e) {
+          $(men).hide();
+          });
+    });
+</script>
 </body>
 </html> 
