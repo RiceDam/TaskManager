@@ -11,6 +11,12 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         
+        <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-firestore.js"></script>
+        <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+        <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+        
         <style>
             footer {
                 height: 50px;
@@ -38,6 +44,21 @@
                 text-align: center;
             }
         </style>
+        <script>
+            // Your web app's Firebase configuration
+            var firebaseConfig = {
+            apiKey: "AIzaSyATxLHb3r-mvvOnMNysgs4w93mNJ9W9WPQ",
+            authDomain: "taskmanager-a2601.firebaseapp.com",
+            databaseURL: "https://taskmanager-a2601.firebaseio.com",
+            projectId: "taskmanager-a2601",
+            storageBucket: "taskmanager-a2601.appspot.com",
+            messagingSenderId: "794283389798",
+            appId: "1:794283389798:web:f8b8f40c49cbebb543cea7"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            var db = firebase.firestore();
+        </script>
     </head>
     <body>
         <div class="container-fluid">
@@ -49,31 +70,16 @@
             <div id="hello">
                 <h1>Task List</h1>
                 <ul class="list-group">
-                    <li class="list-group-item">Morbi leo risus</li>
-                    <li class="list-group-item">Porta ac consectetur ac</li>
-                    <li class="list-group-item">Vestibulum at eros</li>
-                    <li class="list-group-item">Vestibulum at eros</li>
-                    <li class="list-group-item">Vestibulum at eros</li>
-                    <li class="list-group-item">Vestibulum at eros</li>
-                    <li class="list-group-item">Vestibulum at eros</li>
-                    <li class="list-group-item">Vestibulum at eros</li>
-                    <li class="list-group-item">Vestibulum at eros</li>
-                    <li class="list-group-item">Vestibulum at eros</li>
-                    <li class="list-group-item">Vestibulum at eros</li>
-                    <li class="list-group-item">Vestibulum at eros</li>
-                    <li class="list-group-item">Vestibulum at eros</li>
-                    <li class="list-group-item">Vestibulum at eros</li>
-                    <li class="list-group-item">Vestibulum at eros</li>
-                    <li class="list-group-item">Vestibulum at eros</li>
-                    <li class="list-group-item">Vestibulum at eros</li>
-                    <li class="list-group-item">Vestibulum at eros</li>
-                    <li class="list-group-item">Vestibulum at eros</li>
-                    <li class="list-group-item">Vestibulum at eros</li>
                 </ul>
             </div>
             <footer class="footer">Footer Info Goes Here</footer>
         </div>
-        
+        <script src="script/create_user.js"></script>
+        <script src="script/load_tasks.js"></script>
+        <script>
+            createUser();
+            loadTasks();
+        </script>
     </body>
     
 </html>
