@@ -5,8 +5,9 @@ function loadTasks() {
                 var listItem = document.createElement("LI");
                 listItem.className = "list-group-item";
                 console.log(doc.data());
-                var info = doc.data().Task_1;
-                listItem.innerHTML = info;
+                var name = doc.data().Name;
+                var dueDate = doc.data().Due_Date;
+                listItem.innerHTML = "Name: " + name + "<br>" + "Due Date: " + dueDate;
                 var ele = document.getElementsByClassName("list-group");
                 for (var x = 0; x < ele.length; x++) {
                     ele[x].append(listItem);

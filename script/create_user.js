@@ -10,10 +10,12 @@ function createUser() {
             "total": 0,
         });
         db.collection("users").doc(user.uid).collection("tasks").doc("task1").set({
-            "Task_1": 0,
+            "Name": "Bob",
+            "Due_Date": "January 19",
         });
         db.collection("users").doc(user.uid).collection("tasks").doc("task2").set({
-            "Task_1": 0,
+            "Name": "Dylan",
+            "Due_Date": "December 25",
         });
     });
 }
