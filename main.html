@@ -1,196 +1,205 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>TaskManager</title>
-        
-         <script>
-            // Your web app's Firebase configuration
-            var firebaseConfig = {
-            apiKey: "AIzaSyATxLHb3r-mvvOnMNysgs4w93mNJ9W9WPQ",
-            authDomain: "taskmanager-a2601.firebaseapp.com",
-            databaseURL: "https://taskmanager-a2601.firebaseio.com",
-            projectId: "taskmanager-a2601",
-            storageBucket: "taskmanager-a2601.appspot.com",
-            messagingSenderId: "794283389798",
-            appId: "1:794283389798:web:f8b8f40c49cbebb543cea7"
-            };
-            // Initialize Firebase
-            firebase.initializeApp(firebaseConfig);
-            var db = firebase.firestore();
-        </script>
-      
-        
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-        
-        <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-auth.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-firestore.js"></script>
-        <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
-        <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
-        
-        <style>
 
-          #navbar {
-          background-color: #2b1f60;
-          }
-          #title {
-          color: #f4fffd;
-          font-size: 40pt;
-          text-align: center;
-          }
-          #search {
-          position: absolute;
-          right: 0;
-          top: 0;
-          
-          
-          }
-          #searchbar {
-          display: none;
-          }
-          #addicon {
-          position: absolute;
-          right :0;
-          bottom: 0;
-          
-          }
-          
-          
-          
-          
-          
-  
-  /* Remove margins and padding from the list */
-ul {
-  margin: 0;
-  padding: 0;
-}
+<head>
+  <meta charset="utf-8">
+  <title>TaskManager</title>
 
-/* Style the list items */
-          
-ul li {
-  cursor: pointer;
-  position: relative;
-  padding: 12px 8px 12px 40px;
-  background: #eee;
-  font-size: 18px;
-  transition: 0.2s;
-  }
-  
-  #add{
-  width: 100%;
-  font-size: 48pt;
-  text-align: center;
-  background-color: #2b1f60;
-  color: #f4fffd;
-  margin: 0;
-  }
-  input{
-  width: 100%;
-  padding: 24px 44px;
-  margin: 8px 0;
-  display: inline-block;
-  font-size: 46pt;
-  border-radius: 4px;
-  box-sizing: border-box;
-  }
-  #name {
-  font-size: 46pt;
-  padding: 30pt;
-  }
-  #type {
-  font-size: 46pt;
-  padding: 30pt;
-  }
-  #due {
-  font-size: 46pt;
-  padding: 30pt;
-  }
-  #add {
-  position: absolute;
-  top: 1%;
-  }
-  #submission {
-  position: absolute;
-  top: 40%;
-  }
-          #main {
-          width: 100%;
-          z-index : 1;
-          display : none;
-          }
-  
-</style>            
-          
-          
-        
-    </head>
-     <body>
-    <div id="maincontent">
-    <header id= "navbar">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-firestore.js"></script>
+  <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+
+  <style>
+    #navbar {
+      background-color: #2b1f60;
+    }
+
+    #title {
+      color: #f4fffd;
+      font-size: 40pt;
+      text-align: center;
+    }
+
+    #search {
+      position: absolute;
+      right: 0;
+      top: 0;
+
+
+    }
+
+    #searchbar {
+      display: none;
+    }
+
+    #addicon {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+
+    }
+
+
+
+
+
+
+    /* Remove margins and padding from the list */
+    ul {
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Style the list items */
+
+    ul li {
+      cursor: pointer;
+      position: relative;
+      padding: 12px 8px 12px 40px;
+      background: #eee;
+      font-size: 18px;
+      transition: 0.2s;
+    }
+
+    #add {
+      width: 100%;
+      font-size: 48pt;
+      text-align: center;
+      background-color: #2b1f60;
+      color: #f4fffd;
+      margin: 0;
+    }
+
+    input {
+      width: 100%;
+      padding: 24px 44px;
+      margin: 8px 0;
+      display: inline-block;
+      font-size: 46pt;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    #name {
+      font-size: 46pt;
+      padding: 30pt;
+    }
+
+    #type {
+      font-size: 46pt;
+      padding: 30pt;
+    }
+
+    #due {
+      font-size: 46pt;
+      padding: 30pt;
+    }
+
+    #add {
+      position: absolute;
+      top: 1%;
+    }
+
+    #submission {
+      position: absolute;
+      top: 40%;
+    }
+
+    #main {
+      width: 100%;
+      z-index: 1;
+      display: none;
+    }
+  </style>
+
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyATxLHb3r-mvvOnMNysgs4w93mNJ9W9WPQ",
+      authDomain: "taskmanager-a2601.firebaseapp.com",
+      databaseURL: "https://taskmanager-a2601.firebaseio.com",
+      projectId: "taskmanager-a2601",
+      storageBucket: "taskmanager-a2601.appspot.com",
+      messagingSenderId: "794283389798",
+      appId: "1:794283389798:web:f8b8f40c49cbebb543cea7"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    var db = firebase.firestore();
+  </script>
+</head>
+
+<body>
+  <div id="maincontent">
+    <header id="navbar">
       <h1 id="title">Task List</h1>
-    <img id="search" src="./image/search.png">
-    <form id="input1">
-    <input type="text" id="searchbar" onkeyup="searchFunction()" placeholder="Search">
+      <img id="search" src="./image/search.png">
+      <form id="input1">
+        <input type="text" id="searchbar" onkeyup="searchFunction()" placeholder="Search">
       </form>
-  </header>
-  <div id="content">
-  
-  <ul class="list-group">
+    </header>
+    <div id="content">
 
-    </ul>
-  <img id ="addicon" src="./image/Add.png" style="width: 64px; height: 64px;"> 
+      <ul class="list-group">
+
+      </ul>
+      <img id="addicon" src="./image/Add.png" style="width: 64px; height: 64px;">
+    </div>
   </div>
-       </div>
-       
-   <div id="main">
-  <header id="add">
-  <h1>Add Task</h1>
-  </header>
-  <form id="submission">
-<input type="text" id="name" placeholder="Name your task." required="required">
-<input type="text" id="type" placeholder="What type of task." required="required">
-<input type="date" id="due"  placeholder="Due date" required="required">
-<input type="submit" value="submit" id="submittask">
-       </form>
+
+  <div id="main">
+    <header id="add">
+      <h1>Add Task</h1>
+    </header>
+    <form id="submission">
+      <input type="text" id="name" placeholder="Name your task." required="required">
+      <input type="text" id="type" placeholder="What type of task." required="required">
+      <input type="date" id="due" placeholder="Due date" required="required">
+      <input type="submit" value="submit" id="submittask">
+    </form>
   </div>
-       
-      
-  
-       
-   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script>
+
+
+
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script>
     /*<![CDATA[*/
-        
-   $(document).ready(function(){
-     var addwindow = $("#main");
-     var submitClick = $("#addicon");
-     console.log(addwindow, submitClick);
-     $("#addicon").click(function(e) {
-       $(addwindow).css('z-index', '2');
-       $(addwindow).css('display', 'block');
-       //console.log(e);
-       
-       
-     });
-     
-     
-     
-   });
-      
-</script>
-<script src="script/create_user.js"></script>
-<script src="script/load_tasks.js"></script>       
-       <script>
-       createUser();
-       loadTasks(); 
-       </script>
 
-    </body>
-    
+    $(document).ready(function () {
+      var addwindow = $("#main");
+      var submitClick = $("#addicon");
+      console.log(addwindow, submitClick);
+      $("#addicon").click(function (e) {
+        $(addwindow).css('z-index', '2');
+        $(addwindow).css('display', 'block');
+        //console.log(e);
+
+
+      });
+
+
+
+    });
+  </script>
+  <script src="script/create_user.js"></script>
+  <script src="script/load_tasks.js"></script>
+    <script src="script/add_task.js"></script>
+  <script>
+    createUser();
+    loadTasks();
+  </script>
+
+</body>
+
 </html>
