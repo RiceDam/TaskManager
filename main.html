@@ -4,21 +4,7 @@
         <meta charset="utf-8">
         <title>TaskManager</title>
         
-         <script>
-            // Your web app's Firebase configuration
-            var firebaseConfig = {
-            apiKey: "AIzaSyATxLHb3r-mvvOnMNysgs4w93mNJ9W9WPQ",
-            authDomain: "taskmanager-a2601.firebaseapp.com",
-            databaseURL: "https://taskmanager-a2601.firebaseio.com",
-            projectId: "taskmanager-a2601",
-            storageBucket: "taskmanager-a2601.appspot.com",
-            messagingSenderId: "794283389798",
-            appId: "1:794283389798:web:f8b8f40c49cbebb543cea7"
-            };
-            // Initialize Firebase
-            firebase.initializeApp(firebaseConfig);
-            var db = firebase.firestore();
-        </script>
+        
       
         
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -47,8 +33,10 @@
           position: absolute;
           right: 0;
           top: 0;
-          
-          
+          }
+          #maincontent {
+          width: 100%;
+          display: block;
           }
           #searchbar {
           display: none;
@@ -86,6 +74,7 @@ ul li {
   width: 100%;
   font-size: 48pt;
   text-align: center;
+  display: block;  
   background-color: #2b1f60;
   color: #f4fffd;
   margin: 0;
@@ -100,28 +89,28 @@ ul li {
   box-sizing: border-box;
   }
   #name {
-  font-size: 46pt;
-  padding: 30pt;
+  width: 100%;
+  font-size: 30pt;
+  padding: 10pt;
   }
   #type {
-  font-size: 46pt;
-  padding: 30pt;
+  width: 100%;
+  font-size: 30pt;
+  padding: 10pt;
   }
   #due {
-  font-size: 46pt;
-  padding: 30pt;
-  }
-  #add {
-  position: absolute;
-  top: 1%;
+  width: 100%;
+  font-size: 30pt;
+  padding: 10pt;
   }
   #submission {
+  width: 100%;
   position: absolute;
-  top: 40%;
+  top: 20%;
   }
           #main {
           width: 100%;
-          z-index : 1;
+          
           display : none;
           }
   
@@ -129,6 +118,22 @@ ul li {
           
           
         
+     <script>
+            // Your web app's Firebase configuration
+            var firebaseConfig = {
+            apiKey: "AIzaSyATxLHb3r-mvvOnMNysgs4w93mNJ9W9WPQ",
+            authDomain: "taskmanager-a2601.firebaseapp.com",
+            databaseURL: "https://taskmanager-a2601.firebaseio.com",
+            projectId: "taskmanager-a2601",
+            storageBucket: "taskmanager-a2601.appspot.com",
+            messagingSenderId: "794283389798",
+            appId: "1:794283389798:web:f8b8f40c49cbebb543cea7"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            var db = firebase.firestore();
+        </script>  
+      
     </head>
      <body>
     <div id="maincontent">
@@ -150,7 +155,7 @@ ul li {
        
    <div id="main">
   <header id="add">
-  <h1>Add Task</h1>
+  <h1 id ="taskadd">Add Task</h1>
   </header>
   <form id="submission">
 <input type="text" id="name" placeholder="Name your task." required="required">
@@ -168,13 +173,15 @@ ul li {
     /*<![CDATA[*/
         
    $(document).ready(function(){
+     var frontwindow = $("#maincontent");
      var addwindow = $("#main");
      var submitClick = $("#addicon");
-     console.log(addwindow, submitClick);
+     console.log(addwindow, submitClick, frontwindow);
      $("#addicon").click(function(e) {
-       $(addwindow).css('z-index', '2');
+       $(addwindow).css('z-index', '1');
+       $(frontwindow).css('display', 'none');
        $(addwindow).css('display', 'block');
-       //console.log(e);
+       console.log(e);
        
        
      });
