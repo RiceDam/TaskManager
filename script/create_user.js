@@ -8,10 +8,5 @@ function createUser() {
             "name":user.displayName, 
             "email":user.email,
         });
-        db.collection("users").doc(user.uid).collection("tasks").doc("task1").set({
-            "Name": "Bob",
-            "Category": "Birthday",
-            "Due_Date": "January 19",
-        });
     });
 }

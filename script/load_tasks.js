@@ -1,6 +1,6 @@
 function loadTasks() {
     firebase.auth().onAuthStateChanged(function (user) {
-        db.collection("users").doc(user.uid).collection("tasks").get().then(function (querySnapshot) {
+        db.collection("users").doc(user.uid).collection("tasks").onSnapshot(function (querySnapshot) {
             querySnapshot.forEach(function(doc) {
                 var listItem = document.createElement("LI");
                 listItem.className = "list-group-item";

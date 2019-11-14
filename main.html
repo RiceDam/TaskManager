@@ -53,11 +53,6 @@
 
     }
 
-
-
-
-
-
     /* Remove margins and padding from the list */
     ul {
       margin: 0;
@@ -172,7 +167,7 @@
       <input type="text" id="name" placeholder="Name your task." required="required">
       <input type="text" id="type" placeholder="What type of task." required="required">
       <input type="date" id="due" placeholder="Due date" required="required">
-      <input type="submit" value="submit" id="submittask">
+      <input type="button" value="submit" id="submittask">
     </form>
   </div>
 
@@ -206,6 +201,29 @@
 
     });
   </script>
+    <script>
+        $("#submittask").click(function (event) {
+            var name = $("#name").val();
+            var type = $("#type").val();
+            var date = new Date($("#due").val());
+            var day = date.getDate()+1;
+            console.log(day);
+            var month = date.getMonth()+1;
+            console.log(month);
+            var year = date.getFullYear();
+            console.log(year);
+            var due1 = [year, month, day].join("/");
+            console.log(due);
+            addTask(name, type, due1);
+            var frontwindow = $("#maincontent");
+            var addwindow = $("#main");
+            var addForm = $("#submission");
+            $(addwindow).css('z-index', '1');
+            $(frontwindow).css('display', 'block');
+            $(addwindow).css('display', 'none');
+            $(addForm).trigger("reset");
+        });
+    </script>
 
 </body>
 
