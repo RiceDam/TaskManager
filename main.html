@@ -46,6 +46,7 @@
       z-index: 1;
       width: 40%;
       height: 2%;
+      display: none;
     }
 
     #addicon {
@@ -187,8 +188,8 @@
       console.log(addwindow, submitClick, frontwindow);
       $("#addicon").click(function (e) {
         $(addwindow).css('z-index', '1');
-        $(frontwindow).css('display', 'none');
-        $(addwindow).css('display', 'block');
+        $(frontwindow).toggle();
+        $(addwindow).toggle("ease", "linear");
         console.log(e);
       });
     });
@@ -197,10 +198,15 @@
    <!-- Create script for search filter-->
   <script>
   $(document).ready(function() {
-  $("#")
+  $("#searchbar").on('keyup', function() {
+    var value = $(this).val().toLowerCase();
+    $('.list-group-item').filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)  
+    });
     
+  });
     
-  })
+  });
   
   
   </script>
