@@ -214,24 +214,43 @@
             var name = $("#name").val();
             var type = $("#type").val();
             var date = new Date($("#due").val());
-            var day = date.getDate()+1;
-            console.log(day);
-            var month = date.getMonth()+1;
-            console.log(month);
-            var year = date.getFullYear();
-            console.log(year);
-            var due1 = [year, month, day].join("/");
-            console.log(due);
-            var list = document.getElementsByClassName("list-group-item");
-            console.log(list.length);
-            addTask(name, type, due1);
-            var frontwindow = $("#maincontent");
-            var addwindow = $("#main");
-            var addForm = $("#submission");
-            $(addwindow).css('z-index', '1');
-            $(frontwindow).css('display', 'block');
-            $(addwindow).css('display', 'none');
-            $(addForm).trigger("reset");
+            var current = new Date();
+            if (name != "" && type != "" && Date.parse(date)) {
+                var day = date.getDate()+1;
+                console.log(day);
+                var month = date.getMonth()+1;
+                console.log(month);
+                var year = date.getFullYear();
+                console.log(year);
+                var due1 = [year, month, day].join("/");
+                console.log(due);
+                /*var curDate = current.getDate()+1;
+                var curMonth = current.getMonth()+1;
+                var curYear = current.getFullYear();
+                var curHour = current.getHours();
+                var curMin = current.getMinutes();
+                var cur = [curYear, curMonth, curDate].join("/");
+                var curTime = cur + " " + [curHour, curMin].join(":");*/
+                var list = document.getElementsByClassName("list-group-item");
+                console.log(list.length);
+                addTask(name, type, due1);
+                var frontwindow = $("#maincontent");
+                var addwindow = $("#main");
+                var addForm = $("#submission");
+                $(addwindow).css('z-index', '1');
+                $(frontwindow).css('display', 'block');
+                $(addwindow).css('display', 'none');
+                $(addForm).trigger("reset");
+            }
+            if (name == "") {
+                alert("Please enter a name for the task");
+            }
+            else if (type == "") {
+                alert("Please enter a category for the task");
+            }
+            else if (!Date.parse(date)) {
+                alert("Please choose a date");
+            }
         });
     </script>
 
