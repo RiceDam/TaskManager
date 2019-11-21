@@ -82,6 +82,9 @@
       color: #f4fffd;
       margin: 0;
     }
+    #taskadd {
+    padding: 8px 10px;
+    }
 
     input {
       width: 100%;
@@ -110,6 +113,11 @@
       font-size: 30pt;
       padding: 10pt;
     }
+    #details {
+      width: 100%;
+      font-size: 30pt;
+      padding: 10pt;
+    }
 
     #submission {
       width: 100%;
@@ -122,6 +130,17 @@
 
       display: none;
     }
+    #submittask {
+    padding: 2px 6px;
+    color: #f4fffd;
+    background-color: #2b1f60;
+    }
+    #return {
+    position : absolute;
+    top: 0;
+    left: 0;
+    }
+    
   </style>
   <script>
     // Your web app's Firebase configuration
@@ -163,11 +182,13 @@
   <div id="main">
     <header id="add">
       <h1 id="taskadd">Add Task</h1>
+      <img id="return" src="./image/return.png" style="width:64ps; height: 64px;">
     </header>
     <form id="submission">
       <input type="text" id="name" placeholder="Name your task." required="required">
       <input type="text" id="type" placeholder="What type of task." required="required">
       <input type="date" id="due" placeholder="Due date" required="required">
+      <input type="text" id="details" placeholder="Task details">
       <input type="button" value="submit" id="submittask">
     </form>
   </div>
@@ -180,6 +201,8 @@
     createUser();
     loadTasks();
   </script>
+  
+  <!-- Create Script to popup add task-->
   <script>
     $(document).ready(function () {
       var frontwindow = $("#maincontent");
@@ -195,6 +218,27 @@
     });
   </script>
   
+  <!-- Create script for back function-->
+  <script>
+  $(document).ready(function(){
+    var frontwindow = $("#maincontent");
+      var addwindow = $("#main");
+      var resetButton = $("#return");
+      console.log(addwindow, resetButton, frontwindow);
+      $(resetButton).click(function (e) {
+        $("#name").val("");
+        $("#type").val("");
+        $("#due").val("");
+        $("details").val("");
+        $(frontwindow).toggle("ease", "linear");
+        $(addwindow).toggle();
+        console.log(e);
+        
+    
+  });
+  });
+  </script>
+  
    <!-- Create script for search filter-->
   <script>
   $(document).ready(function() {
@@ -203,12 +247,8 @@
     $('.list-group-item').filter(function() {
       $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)  
     });
-    
   });
-    
   });
-  
-  
   </script>
 
   
@@ -258,7 +298,7 @@
    var searchBar = $("#searchbar");
   $(searchIcon).click(function (event) {
     $(searchBar).toggle(500);
-    
+  
   });
  
   </script>
