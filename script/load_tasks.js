@@ -1,8 +1,14 @@
 function loadTasks() {
+    //If user is authenticated
     firebase.auth().onAuthStateChanged(function(user) {
+        //Gets the tasks collection and organizes by time stamp
         db.collection("users").doc(user.uid).collection("tasks").orderBy("Time_Stamp").onSnapshot(function(querySnapshot) {
+            //For each document in the tasks collection
             querySnapshot.docChanges().forEach(function(change) {
+                //On first time access of firestore
                 if (change.type == "added") {
+                    //Creates list item with all the doc fields and delete buttons
+                    //Adds it to the list of the html
                     var docName = change.doc.id;
                     var listItem = document.createElement("LI");
                     var button = document.createElement("BUTTON");
@@ -17,6 +23,7 @@ function loadTasks() {
                     button.innerHTML = "Delete";
                     $(button).css("display", "none");
                     $(button).on("click", function() {
+                        //Button that deletes list item and doc data from collection
                         $(this).parent().remove();
                         db.collection("users").doc(user.uid).collection("tasks").doc(docName).delete();
                     });
@@ -37,7 +44,10 @@ function loadTasks() {
                         ele[x].append(listItem);
                     }
                 }
+                //When item gets added to list
                 if (change.type == "modified") {
+                    //Creates list item with all of the new doc fields and delete button
+                    //Adds it to the list of the html
                     var docName = change.doc.id;
                     var listItem = document.createElement("LI");
                     var button = document.createElement("BUTTON");
@@ -52,6 +62,7 @@ function loadTasks() {
                     button.innerHTML = "Delete";
                     $(button).css("display", "none");
                     $(button).on("click", function() {
+                        //Function to remove list item from list and doc from collection
                         $(this).parent().remove();
                         db.collection("users").doc(user.uid).collection("tasks").doc(docName).delete();
                     });
@@ -70,6 +81,7 @@ function loadTasks() {
                     var ele = document.getElementsByClassName("list-group");
                     ele[ele.length-1].append(listItem);
                 }
+                //When item gets deleted from firestore
                 if (change.type == "removed") {
                     console.log("Document Removed");
                 }
