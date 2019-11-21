@@ -25,6 +25,11 @@
       font-size: 40pt;
       text-align: center;
     }
+    #settings {
+      position: absolute;
+      top: 0;
+      left; 0;
+    }
 
     #search {
       position: absolute;
@@ -72,7 +77,7 @@
       font-size: 18px;
       transition: 0.2s;
     }
-
+   /* CSS for Add Task Window */
     #add {
       width: 100%;
       font-size: 48pt;
@@ -141,6 +146,32 @@
     left: 0;
     }
     
+    /* CSS for Setting Window */
+     #settingswindow {
+    position: absolute;
+    top: 10.8%;
+    width: 50%;
+    height: 100vh;
+    border: 1px solid #2b1f60;
+    display: none;
+    background-color: #2b1f60;
+    }
+    #settingheader {
+    background-color: #2b1f60;
+    }
+    #sheader {
+    text-align: center;
+    color: #f4fffd;
+    }
+    #logout{
+        padding: 2px 6px;
+    color: #f4fffd;
+    background-color: #2b1f60;
+       width: 100%;
+      font-size: 30pt;
+      padding: 10pt;
+    }
+    
   </style>
   <script>
     // Your web app's Firebase configuration
@@ -160,6 +191,7 @@
 </head>
 
 <body>
+  <!--HTML for main window-->
   <div id="maincontent">
     <header id="navbar">
       <h1 id="title">Task List</h1>
@@ -167,18 +199,24 @@
       <form id="input1">
         <input type="text" id="searchbar" placeholder="Search">
       </form>
+      <img id="settings" src="./image/settings.png" style="width: 64px; height: 64px;">
     </header>
     <div id="content">
-
-
       <ul id="listyboy" class="list-group">
-
-
       </ul>
       <img id="addicon" src="./image/Add.png" style="width: 64px; height: 64px;">
     </div>
   </div>
+  
+    <!--HTML for Setting Window-->
+  <div id="settingswindow">
+<header id =settingheader>
+  <h1 id ="sheader">Settings</h1>
+</header>
+  <input id ="logout" type="submit" value="Log Out">
+  </div>
 
+  <!--HTML for add task window-->
   <div id="main">
     <header id="add">
       <h1 id="taskadd">Add Task</h1>
@@ -192,6 +230,8 @@
       <input type="button" value="submit" id="submittask">
     </form>
   </div>
+  
+
 
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src="script/create_user.js"></script>
@@ -251,7 +291,23 @@
   });
   </script>
 
+  <!--Create Script to open settings window-->
+  <script>
+  $(document).ready(function() {
+    var frontwindow = $("#maincontent");
+    var settingwindow = $("#settingswindow");
+    var settingsicon = $("#settings");
+    $(settingsicon).click(function (e) {
+    $(settingwindow).css('z-index', '1');  
+    $(settingwindow).toggle();
+    console.log(e);
+    
+  });  
+  });
   
+  
+  
+  </script>
   
   
   
