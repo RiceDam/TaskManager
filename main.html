@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>TaskManager</title>
@@ -25,10 +26,12 @@
       font-size: 40pt;
       text-align: center;
     }
+
     #settings {
       position: absolute;
       top: 0;
-      left; 0;
+      left;
+      0;
     }
 
     #search {
@@ -45,7 +48,7 @@
     #searchbar {
       font-size: 14pt;
       position: absolute;
-      right:0.1%;
+      right: 0.1%;
       top: 6.5%;
       float: left;
       z-index: 1;
@@ -77,7 +80,8 @@
       font-size: 18px;
       transition: 0.2s;
     }
-   /* CSS for Add Task Window */
+
+    /* CSS for Add Task Window */
     #add {
       width: 100%;
       font-size: 48pt;
@@ -87,8 +91,9 @@
       color: #f4fffd;
       margin: 0;
     }
+
     #taskadd {
-    padding: 8px 10px;
+      padding: 8px 10px;
     }
 
     input {
@@ -118,6 +123,7 @@
       font-size: 30pt;
       padding: 10pt;
     }
+
     #details {
       width: 100%;
       font-size: 30pt;
@@ -135,18 +141,21 @@
 
       display: none;
     }
+
     #submittask {
-    padding: 2px 6px;
-    color: #f4fffd;
-    background-color: #2b1f60;
+      padding: 2px 6px;
+      color: #f4fffd;
+      background-color: #2b1f60;
     }
+
     #return {
-    position : absolute;
-    top: 0;
-    left: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
     }
-    
+
     /* CSS for Setting Window */
+
      #settingswindow {
     width: 50%;
     margin: 0;
@@ -154,23 +163,35 @@
     border: 1px solid #2b1f60;
     display: none;
     background-color: #2b1f60;
+       }
+    #settingswindow {
+      position: absolute;
+      top: 10.8%;
+      width: 50%;
+      height: 100vh;
+      border: 1px solid #2b1f60;
+      display: none;
+      background-color: #2b1f60;
+
     }
+
     #settingheader {
-    background-color: #2b1f60;
+      background-color: #2b1f60;
     }
+
     #sheader {
-    text-align: center;
-    color: #f4fffd;
+      text-align: center;
+      color: #f4fffd;
     }
-    #logout{
-        padding: 2px 6px;
-    color: #f4fffd;
-    background-color: #2b1f60;
-       width: 100%;
+
+    #logout {
+      padding: 2px 6px;
+      color: #f4fffd;
+      background-color: #2b1f60;
+      width: 100%;
       font-size: 30pt;
       padding: 10pt;
     }
-    
   </style>
   <script>
     // Your web app's Firebase configuration
@@ -215,7 +236,18 @@
       <img id="addicon" src="./image/Add.png" style="width: 64px; height: 64px;">
     </div>
   </div>
+<<<<<<< HEAD
   
+=======
+
+  <!--HTML for Setting Window-->
+  <div id="settingswindow">
+    <header id=settingheader>
+      <h1 id="sheader">Settings</h1>
+    </header>
+    <input id="logout" type="submit" value="Log Out">
+  </div>
+>>>>>>> 83b0ee812657012c3c5071942f676b5c9a52c32a
 
   <!--HTML for add task window-->
   <div id="main">
@@ -231,7 +263,7 @@
       <input type="button" value="submit" id="submittask">
     </form>
   </div>
-  
+
 
 
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -242,7 +274,7 @@
     createUser();
     loadTasks();
   </script>
-  
+
   <!-- Create Script to popup add task-->
   <script>
     $(document).ready(function () {
@@ -258,11 +290,11 @@
       });
     });
   </script>
-  
+
   <!-- Create script for back function-->
   <script>
-  $(document).ready(function(){
-    var frontwindow = $("#maincontent");
+    $(document).ready(function () {
+      var frontwindow = $("#maincontent");
       var addwindow = $("#main");
       var resetButton = $("#return");
       console.log(addwindow, resetButton, frontwindow);
@@ -274,26 +306,27 @@
         $(frontwindow).toggle("ease", "linear");
         $(addwindow).toggle();
         console.log(e);
-        
-    
-  });
-  });
-  </script>
-  
-   <!-- Create script for search filter-->
-  <script>
-  $(document).ready(function() {
-  $("#searchbar").on('keyup', function() {
-    var value = $(this).val().toLowerCase();
-    $('.list-group-item').filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)  
+
+
+      });
     });
-  });
-  });
+  </script>
+
+  <!-- Create script for search filter-->
+  <script>
+    $(document).ready(function () {
+      $("#searchbar").on('keyup', function () {
+        var value = $(this).val().toLowerCase();
+        $('.list-group-item').filter(function () {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+      });
+    });
   </script>
 
   <!--Create Script to open settings window-->
   <script>
+<<<<<<< HEAD
   $(document).ready(function() {
     var frontwindow = $("#maincontent");
     var settingwindow = $("#settingswindow");
@@ -329,59 +362,70 @@
       }
     });
   });
-  </script>
-  
-  
-  
-    <script>
-        $("#submittask").click(function (event) {
-            var name = $("#name").val();
-            var type = $("#type").val();
-            var date = new Date($("#due").val());
-            var current = new Date();
-            if (name != "" && type != "" && Date.parse(date)) {
-                var day = date.getDate()+1;
-                console.log(day);
-                var month = date.getMonth()+1;
-                console.log(month);
-                var year = date.getFullYear();
-                console.log(year);
-                var due1 = [year, month, day].join("/");
-                console.log(due);
-                var list = document.getElementsByClassName("list-group-item");
-                console.log(list.length);
-                addTask(name, type, due1);
-                var frontwindow = $("#maincontent");
-                var addwindow = $("#main");
-                var addForm = $("#submission");
-                $(addwindow).css('z-index', '1');
-                $(frontwindow).css('display', 'block');
-                $(addwindow).css('display', 'none');
-                $(addForm).trigger("reset");
-            }
-            if (name == "") {
-                alert("Please enter a name for the task");
-            }
-            else if (type == "") {
-                alert("Please enter a category for the task");
-            }
-            else if (!Date.parse(date)) {
-                alert("Please choose a date");
-            }
-        });
-    </script>
 
-    <script>
-   var searchIcon = $("#search");
-   var searchBar = $("#searchbar");
-  $(searchIcon).click(function (event) {
-    $(searchBar).toggle(500);
-  
-  });
- 
+    $(document).ready(function () {
+      var frontwindow = $("#maincontent");
+      var settingwindow = $("#settingswindow");
+      var settingsicon = $("#settings");
+      $(settingsicon).click(function (e) {
+        $(settingwindow).css('z-index', '1');
+        $(settingwindow).toggle();
+        console.log(e);
+
+      });
+    });
+
   </script>
-  
-  
+
+
+
+  <script>
+    $("#submittask").click(function (event) {
+      var name = $("#name").val();
+      var type = $("#type").val();
+      var date = new Date($("#due").val());
+      var details = $("#details").val();
+      var current = new Date();
+      if (name != "" && type != "" && Date.parse(date)) {
+        var day = date.getDate() + 1;
+        console.log(day);
+        var month = date.getMonth() + 1;
+        console.log(month);
+        var year = date.getFullYear();
+        console.log(year);
+        var due1 = [year, month, day].join("/");
+        console.log(due);
+        var list = document.getElementsByClassName("list-group-item");
+        console.log(list.length);
+        addTask(name, type, due1, details);
+        var frontwindow = $("#maincontent");
+        var addwindow = $("#main");
+        var addForm = $("#submission");
+        $(addwindow).css('z-index', '1');
+        $(frontwindow).css('display', 'block');
+        $(addwindow).css('display', 'none');
+        $(addForm).trigger("reset");
+      }
+      if (name == "") {
+        alert("Please enter a name for the task");
+      } else if (type == "") {
+        alert("Please enter a category for the task");
+      } else if (!Date.parse(date)) {
+        alert("Please choose a date");
+      }
+    });
+  </script>
+
+  <script>
+    var searchIcon = $("#search");
+    var searchBar = $("#searchbar");
+    $(searchIcon).click(function (event) {
+      $(searchBar).toggle(500);
+
+    });
+  </script>
+
+
 </body>
 
 </html>

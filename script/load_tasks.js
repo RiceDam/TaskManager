@@ -18,8 +18,9 @@ function loadTasks() {
                     var name = change.doc.data().Name;
                     var category = change.doc.data().Category;
                     var dueDate = change.doc.data().Due_Date;
+                    var details = change.doc.data().Details;
                     var time = change.doc.data().Time_Stamp;
-                    listItem.innerHTML = "Name: " + name + "<br>" +"Category: " + category + "<br>" + "Due Date: " + dueDate + "<br>" + "Time Stamp: " + time.toDate();
+                    listItem.innerHTML = "Name: " + name + "<br>" +"Category: " + category + "<br>" + "Due Date: " + dueDate + "<br>" + "Details: " + details + "<br>" + "Time Stamp: " + time.toDate();
                     button.innerHTML = "Delete";
                     $(button).css("display", "none");
                     $(button).on("click", function() {
@@ -57,8 +58,9 @@ function loadTasks() {
                     var name = change.doc.data().Name;
                     var category = change.doc.data().Category;
                     var dueDate = change.doc.data().Due_Date;
+                    var details = change.doc.data().Details;
                     var time = change.doc.data().Time_Stamp;
-                    listItem.innerHTML = "Name: " + name + "<br>" +"Category: " + category + "<br>" + "Due Date: " + dueDate + "<br>" + "Time Stamp: " + time.toDate();
+                    listItem.innerHTML = "Name: " + name + "<br>" +"Category: " + category + "<br>" + "Due Date: " + dueDate + "<br>" + "Details: " + details + "<br>" + "Time Stamp: " + time.toDate();
                     button.innerHTML = "Delete";
                     $(button).css("display", "none");
                     $(button).on("click", function() {
