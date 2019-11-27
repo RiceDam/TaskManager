@@ -333,8 +333,14 @@
     $(document).ready(function () {
       var logoutbutton = $("#logout");
       logoutbutton.click(function (e) {
-        window.location.replace("index.html");
-
+        firebase.auth().signOut().then(function() {
+          // Sign-out successful.
+            console.log("signed out")
+            window.location.replace("index.html");
+        }).catch(function(error) {
+          // An error happened.
+            console.log("An error occured")
+        });
       });
 
     });
