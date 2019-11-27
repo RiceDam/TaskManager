@@ -30,8 +30,7 @@
     #settings {
       position: absolute;
       top: 0;
-      left;
-      0;
+      left: 0;
     }
 
     #search {
@@ -156,14 +155,15 @@
 
     /* CSS for Setting Window */
 
-     #settingswindow {
-    width: 50%;
-    margin: 0;
-    height: 100vh;
-    border: 1px solid #2b1f60;
-    display: none;
-    background-color: #2b1f60;
-       }
+    #settingswindow {
+      width: 50%;
+      margin: 0;
+      height: 100vh;
+      border: 1px solid #2b1f60;
+      display: none;
+      background-color: #2b1f60;
+    }
+
     #settingswindow {
       position: absolute;
       top: 10.8%;
@@ -219,35 +219,24 @@
       <form id="input1">
         <input type="text" id="searchbar" placeholder="Search">
       </form>
-      <img id="settings" src="./image/settings.png" style="width: 64px; height: 64px;">
+      <img id="settings" src="./image/settings.png" style="width: 64px; height: 64px;" />
     </header>
-        <!--HTML for Setting Window-->
-  <div id="settingswindow">
-<header id =settingheader>
-  <h1 id ="sheader">Settings</h1>
-</header>
-  <input id ="logout" type="submit" value="Log Out">
-  </div>
+    <!--HTML for Setting Window-->
+    <div id="settingswindow">
+      <header id=settingheader>
+        <h1 id="sheader">Settings</h1>
+      </header>
+      <input id="logout" type="submit" value="Log Out">
+    </div>
 
-    
+
     <div id="content">
       <ul id="listyboy" class="list-group">
       </ul>
       <img id="addicon" src="./image/Add.png" style="width: 64px; height: 64px;">
     </div>
   </div>
-<<<<<<< HEAD
-  
-=======
 
-  <!--HTML for Setting Window-->
-  <div id="settingswindow">
-    <header id=settingheader>
-      <h1 id="sheader">Settings</h1>
-    </header>
-    <input id="logout" type="submit" value="Log Out">
-  </div>
->>>>>>> 83b0ee812657012c3c5071942f676b5c9a52c32a
 
   <!--HTML for add task window-->
   <div id="main">
@@ -326,58 +315,30 @@
 
   <!--Create Script to open settings window-->
   <script>
-<<<<<<< HEAD
-  $(document).ready(function() {
-    var frontwindow = $("#maincontent");
-    var settingwindow = $("#settingswindow");
-    var settingsicon = $("#settings");
-    $(settingsicon).click(function (e) {
-    $(settingwindow).css('z-index', '1');  
-    $(settingwindow).toggle();
-    console.log(e);
-  });  
-  });
-  </script>
-  
-  <!--Create script for log out functionality-->
-  <script>
-  $(document).ready(function() {
-    var logoutbutton = $("#logout");
-    logoutbutton.click(function (e) {
-      window.location.replace("index.html");
-      
-    });
-    
-  });
-  
-  </script>
-  
-  <!-- Create Script to hide settings off click-->
-  <script>
-  $(document).ready(function() {
-    var settingwindow =$("#settingswindow");
-      $(settingwindow).click(function (e) {
-      if(e.target.className !== "#settingswindow") {
-      $(settingwindow).toggle();
-      }
-    });
-  });
-
     $(document).ready(function () {
       var frontwindow = $("#maincontent");
       var settingwindow = $("#settingswindow");
+      console.log(settingwindow);
       var settingsicon = $("#settings");
       $(settingsicon).click(function (e) {
         $(settingwindow).css('z-index', '1');
         $(settingwindow).toggle();
         console.log(e);
-
       });
     });
-
   </script>
 
+  <!--Create script for log out functionality-->
+  <script>
+    $(document).ready(function () {
+      var logoutbutton = $("#logout");
+      logoutbutton.click(function (e) {
+        window.location.replace("index.html");
 
+      });
+
+    });
+  </script>
 
   <script>
     $("#submittask").click(function (event) {
