@@ -57,7 +57,7 @@
     }
 
     #addicon {
-      position: absolute;
+      position: fixed;
       right: 0;
       bottom: 0;
 
@@ -352,8 +352,7 @@
       var type = $("#type").val();
       var date = new Date($("#due").val());
       var details = $("#details").val();
-      var current = new Date();
-      if (name != "" && type != "" && Date.parse(date)) {
+      if ((name != "" || name.length > 100) && (type != "" || type.length > 100) && Date.parse(date) && details.length > 250) {
         var day = date.getDate() + 1;
         console.log(day);
         var month = date.getMonth() + 1;
@@ -379,6 +378,12 @@
         alert("Please enter a category for the task");
       } else if (!Date.parse(date)) {
         alert("Please choose a date");
+      } else if (name.length > 100) {
+          alert("Please enter less than 100 words for the name");
+      } else if (type.length > 100) {
+          alert("Please enter less than 100 words for the type");
+      } else if (details.length > 250) {
+          alert("Please enter less than 250 words for the details");
       }
     });
   </script>
