@@ -15,10 +15,15 @@ function loadTasks() {
                     listItem.className = "list-group-item";
                     button.className = "btn btn-outline-danger";
                     console.log(change.doc.data());
+                    //Name of task
                     var name = change.doc.data().Name;
+                    //Name of category
                     var category = change.doc.data().Category;
+                    //Due date of task
                     var dueDate = change.doc.data().Due_Date;
+                    //Details of task
                     var details = change.doc.data().Details;
+                    //Time that task was created
                     var time = change.doc.data().Time_Stamp;
                     listItem.innerHTML = "Name: " + name + "<br>" +"Category: " + category + "<br>" + "Due Date: " + dueDate + "<br>" + "Details: " + details + "<br>" + "Time Stamp: " + time.toDate();
                     button.innerHTML = "Delete";
@@ -31,6 +36,7 @@ function loadTasks() {
                     listItem.append(button);
                     var clicked = false;
                     $(listItem).on("click", function() {
+                        //Shows delete button on click
                         if (!clicked) {
                             $(button).css("display","block");
                             clicked = true;
@@ -41,6 +47,7 @@ function loadTasks() {
                         }
                     });
                     var ele = document.getElementsByClassName("list-group");
+                    //Adds task to list
                     for (var x = 0; x < ele.length; x++) {
                         ele[x].append(listItem);
                     }
@@ -55,22 +62,28 @@ function loadTasks() {
                     listItem.className = "list-group-item";
                     button.className = "btn btn-outline-danger";
                     console.log(change.doc.data());
+                    //Name of task
                     var name = change.doc.data().Name;
+                    //Name of category
                     var category = change.doc.data().Category;
+                    //Due date of task
                     var dueDate = change.doc.data().Due_Date;
+                    //Details of task
                     var details = change.doc.data().Details;
+                    //Time that task was created
                     var time = change.doc.data().Time_Stamp;
                     listItem.innerHTML = "Name: " + name + "<br>" +"Category: " + category + "<br>" + "Due Date: " + dueDate + "<br>" + "Details: " + details + "<br>" + "Time Stamp: " + time.toDate();
                     button.innerHTML = "Delete";
                     $(button).css("display", "none");
                     $(button).on("click", function() {
-                        //Function to remove list item from list and doc from collection
+                        //Button to delete task from list
                         $(this).parent().remove();
                         db.collection("users").doc(user.uid).collection("tasks").doc(docName).delete();
                     });
                     listItem.append(button);
                     var clicked = false;
                     $(listItem).on("click", function() {
+                        //Shows delete button on click
                         if (!clicked) {
                             $(button).css("display","block");
                             clicked = true;
@@ -81,6 +94,7 @@ function loadTasks() {
                         }
                     });
                     var ele = document.getElementsByClassName("list-group");
+                    //Adds list item to end ofl ist
                     ele[ele.length-1].append(listItem);
                 }
                 //When item gets deleted from firestore

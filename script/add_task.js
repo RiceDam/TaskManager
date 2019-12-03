@@ -1,5 +1,9 @@
 // Create Function to add task to database
 function addTask(name, category, due, details) {
+    //name: name of task
+    //category: category of task
+    //due: the due date of task
+    //details: extra details of task
     //If user is authenticated
     firebase.auth().onAuthStateChanged(function (user) {
         //Accesses tasks collection
