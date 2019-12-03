@@ -163,6 +163,9 @@
 
   <script>
     $(document).ready(function () {
+      let test = document.getElementById("who");
+      let t = window.getComputedStyle(test,null).getPropertyValue("background");
+      console.log(t);
       var burg = $("#burger");
       var men = $("#menu");
       $(burg).hover(

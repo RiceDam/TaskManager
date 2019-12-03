@@ -30,8 +30,7 @@
     #settings {
       position: absolute;
       top: 0;
-      left;
-      0;
+      left: 0;
     }
 
     #search {
@@ -156,14 +155,15 @@
 
     /* CSS for Setting Window */
 
-     #settingswindow {
-    width: 50%;
-    margin: 0;
-    height: 100vh;
-    border: 1px solid #2b1f60;
-    display: none;
-    background-color: #2b1f60;
-       }
+    #settingswindow {
+      width: 50%;
+      margin: 0;
+      height: 100vh;
+      border: 1px solid #2b1f60;
+      display: none;
+      background-color: #2b1f60;
+    }
+
     #settingswindow {
       position: absolute;
       top: 10.8%;
@@ -219,17 +219,17 @@
       <form id="input1">
         <input type="text" id="searchbar" placeholder="Search">
       </form>
-      <img id="settings" src="./image/settings.png" style="width: 64px; height: 64px;">
+      <img id="settings" src="./image/settings.png" style="width: 64px; height: 64px;" />
     </header>
-        <!--HTML for Setting Window-->
-  <div id="settingswindow">
-<header id =settingheader>
-  <h1 id ="sheader">Settings</h1>
-</header>
-  <input id ="logout" type="submit" value="Log Out">
-  </div>
+    <!--HTML for Setting Window-->
+    <div id="settingswindow">
+      <header id=settingheader>
+        <h1 id="sheader">Settings</h1>
+      </header>
+      <input id="logout" type="submit" value="Log Out">
+    </div>
 
-    
+
     <div id="content">
       <ul id="listyboy" class="list-group">
       </ul>
@@ -237,16 +237,6 @@
     </div>
   </div>
 
-  
-
-
-  <!--HTML for Setting Window-->
-  <div id="settingswindow">
-    <header id=settingheader>
-      <h1 id="sheader">Settings</h1>
-    </header>
-    <input id="logout" type="submit" value="Log Out">
-  </div>
 
   <!--HTML for add task window-->
   <div id="main">
@@ -326,57 +316,36 @@
   <!--Create Script to open settings window-->
   <script>
 
-  $(document).ready(function() {
-    var frontwindow = $("#maincontent");
-    var settingwindow = $("#settingswindow");
-    var settingsicon = $("#settings");
-    $(settingsicon).click(function (e) {
-    $(settingwindow).css('z-index', '1');  
-    $(settingwindow).toggle();
-    console.log(e);
-  });  
-  });
-  </script>
-  
-  <!--Create script for log out functionality-->
-  <script>
-  $(document).ready(function() {
-    var logoutbutton = $("#logout");
-    logoutbutton.click(function (e) {
-      window.location.replace("index.html");
-      
-    });
-    
-  });
-  
-  </script>
-  
-  <!-- Create Script to hide settings off click-->
-  <script>
-  $(document).ready(function() {
-    var settingwindow =$("#settingswindow");
-      $(settingwindow).click(function (e) {
-      if(e.target.className !== "#settingswindow") {
-      $(settingwindow).toggle();
-      }
-    });
-  });
-
     $(document).ready(function () {
       var frontwindow = $("#maincontent");
       var settingwindow = $("#settingswindow");
+      console.log(settingwindow);
       var settingsicon = $("#settings");
       $(settingsicon).click(function (e) {
         $(settingwindow).css('z-index', '1');
         $(settingwindow).toggle();
         console.log(e);
-
       });
     });
-
   </script>
 
+  <!--Create script for log out functionality-->
+  <script>
+    $(document).ready(function () {
+      var logoutbutton = $("#logout");
+      logoutbutton.click(function (e) {
+        firebase.auth().signOut().then(function() {
+          // Sign-out successful.
+            console.log("signed out")
+            window.location.replace("index.html");
+        }).catch(function(error) {
+          // An error happened.
+            console.log("An error occured")
+        });
+      });
 
+    });
+  </script>
 
   <script>
     $("#submittask").click(function (event) {
@@ -384,8 +353,7 @@
       var type = $("#type").val();
       var date = new Date($("#due").val());
       var details = $("#details").val();
-      var current = new Date();
-      if (name != "" && type != "" && Date.parse(date)) {
+      if ((name != "" || name.length < 100) && (type != "" || type.length > 100) && Date.parse(date) && details.length < 250) {
         var day = date.getDate() + 1;
         console.log(day);
         var month = date.getMonth() + 1;
@@ -411,6 +379,12 @@
         alert("Please enter a category for the task");
       } else if (!Date.parse(date)) {
         alert("Please choose a date");
+      } else if (name.length > 100) {
+          alert("Please enter less than 100 words for the name");
+      } else if (type.length > 100) {
+          alert("Please enter less than 100 words for the type");
+      } else if (details.length > 250) {
+          alert("Please enter less than 250 words for the details");
       }
     });
   </script>
