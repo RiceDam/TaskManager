@@ -353,7 +353,7 @@
       var type = $("#type").val();
       var date = new Date($("#due").val());
       var details = $("#details").val();
-      if ((name != "" || name.length < 100) && (type != "" || type.length > 100) && Date.parse(date) && details.length < 250) {
+      if ((name != "" || name.length < 100) && (type != "" || type.length < 100) && Date.parse(date) && details.length < 250) {
         var day = date.getDate() + 1;
         console.log(day);
         var month = date.getMonth() + 1;
